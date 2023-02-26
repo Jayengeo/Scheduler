@@ -13,6 +13,7 @@ import Empty from "components/Appointment/Empty";
 import Show from "components/Appointment/Show";
 import Confirm from "components/Appointment/Confirm";
 import Status from "components/Appointment/Status";
+import Error from "components/Appointment/Error";
 
 
 import Button from "components/Button";
@@ -147,4 +148,5 @@ storiesOf("Appointment", module)
   .add("Header", () => <Header time="12pm" />)
   .add("Empty",() => <Empty onAdd={action("onAdd")}/>)
   .add("Show",() => <Show onEdit={action("onEdit")} onDelete={action("onDelete")} student="Lydia Miller-Jones" interviewer={interviewer}/>)
-  .add("Status",() => <Status  message="Deleting"/>);
+  .add("Status",() => <Status  message="Deleting"/>)
+  .add("Error",() => <Error onClose={action("onClose")} message="Could not delete appointment."/>);
