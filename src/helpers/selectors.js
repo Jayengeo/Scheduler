@@ -18,6 +18,12 @@ export function getInterview(state, interview) {
   }
 
   const interviewerData = state.interviewers[interview.interviewer];
+ 
+  console.log("state.interveiwers:" , state.interviewers)
+  console.log("interview.interviewer:",interview.interviewer)
+  console.log(interview)
+  console.log(interviewerData)
+  
   return {
     student: interview.student,
     interviewer: interviewerData
