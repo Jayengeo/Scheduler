@@ -4,7 +4,7 @@ import InterviewerListItem from "components/InterviewerListItem"
 
 export default function InterviewerList(props) {
   const interviewers = props.interviewers
-  console.log(interviewers)
+
   let mappedinterviewers = ""
   
   if(interviewers !== undefined ){
