@@ -13,13 +13,13 @@ export default function Application(props) {
 
   const Schedule = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
-
+const interviewers = Object.values(state.interviewers)
     return (
       <Appointment
         key={appointment.id}
         {...appointment}
         interview={interview}
-        interviewers={state.interviewers}
+        interviewers={interviewers}
         bookInterview={bookInterview}
         cancelInterview={cancelInterview}
       />
