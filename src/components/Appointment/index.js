@@ -74,7 +74,7 @@ export default function Appointment(props) {
       {mode === SAVING && <Status message="Saving" />}
       {mode === CONFIRM && (
         <Confirm
-          message="Are you sure you want to delete?"
+          message="Are you sure you would like to delete?"
           onCancel={back}
           onConfirm={remove}
         />
@@ -85,7 +85,6 @@ export default function Appointment(props) {
           name={props.name ? props.name : props.interview.student}
           value={props.value ? props.value : props.interview.interviewer.id}
           onSave={save}
-          onEdit={edit}
           interviewers={props.interviewers}
           onCancel={back}
         />

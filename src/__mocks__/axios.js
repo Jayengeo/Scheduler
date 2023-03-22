@@ -1,3 +1,4 @@
+
 const fixtures = {
   days: [
     {
@@ -89,16 +90,17 @@ export default {
 
   put: jest.fn(() => {
     return Promise.resolve({
-      status: 204,
-      statusText: "No Content",
+      status: 200,
+      statusText: "OK",
+      data: interview
     });
-  })
+  }),
 
-  // delete: jest.fn((id) => {
-  //   return Promise.resolve({
-  //     status: 200,
-  //     statusText: "OK",
-  //     data: null,
-  //   });
-  // }),
+  delete: jest.fn((id) => {
+    return Promise.resolve({
+      status: 200,
+      statusText: "OK",
+      data: null
+    });
+  }),
 };
