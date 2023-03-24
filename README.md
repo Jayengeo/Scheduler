@@ -6,6 +6,7 @@ A user can book interviews by typing in a student name and clicking on an interv
 A user can change the details of an existing interview by pressing the edit icon
 A user can cancel an existing interview, a message will appear and ask the user to confirm the action before permanently deleting an interview
 
+https://github.com/Jackyngo96/Scheduler/blob/master/Docs/Interview-Scheduler-functionality.gif?raw=true
 
 ## Setup
 
