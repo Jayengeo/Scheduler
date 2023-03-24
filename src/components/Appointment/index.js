@@ -10,6 +10,8 @@ import Confirm from "components/Appointment/Confirm";
 import Error from "components/Appointment/Error";
 
 export default function Appointment(props) {
+  
+  //transition modes
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
@@ -24,6 +26,7 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
+  //saves apointment inforamation
   function save(name, interviewer) {
     if (name && interviewer) {
       transition(SAVING);
@@ -40,6 +43,7 @@ export default function Appointment(props) {
     }
   }
 
+  // removes booked appointment
   function remove() {
     if (mode === CONFIRM) {
       transition(DELETING, true);
@@ -52,6 +56,7 @@ export default function Appointment(props) {
     }
   }
 
+  // allows user to edit appointment
   function edit() {
     transition(EDIT);
   }
@@ -83,7 +88,7 @@ export default function Appointment(props) {
       {mode === EDIT && (
         <Form
           name={props.name ? props.name : props.interview.student}
-          value={props.value ? props.value : props.interview.interviewer.id}
+          interviewer={props.interviewer ? props.interviewer : props.interview.interviewer.id}
           onSave={save}
           interviewers={props.interviewers}
           onCancel={back}

@@ -3,6 +3,7 @@ import Button from "components/Button";
 import InterviewerList from "components/InterviewerList";
 import { useState } from "react";
 
+//allows for user to input name and select an interviewer to book an appointment
 export default function Form(props) {
   const [name, setName] = useState(props.name || "");
 
@@ -10,23 +11,26 @@ export default function Form(props) {
 
   const [error, setError] = useState("");
 
+ // clears information on form 
   function reset() {
     setName("");
     setError("");
     setInterviewer(null);
   }
 
+  //cancels booking an appointment 
   function cancel() {
     reset();
     props.onCancel();
   }
 
+  // sets an error only if name is not present, 
   function validate() {
     if (name === "") {
-      setError("Student name cannot be blank");
+      setError("student name cannot be blank");
       return;
     }
-
+  
     setError("");
     props.onSave(name, interviewer);
   }
@@ -48,6 +52,7 @@ export default function Form(props) {
         </form>
         <InterviewerList
           interviewers={props.interviewers}
+          interviewer={props.interviewer}
           value={interviewer}
           onChange={setInterviewer}
         />

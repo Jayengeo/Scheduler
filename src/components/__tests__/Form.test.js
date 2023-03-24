@@ -1,9 +1,6 @@
 import React from "react";
-
 import { fireEvent } from "@testing-library/react";
-
 import { render, cleanup } from "@testing-library/react";
-
 import Form from "components/Appointment/Form";
 
 afterEach(cleanup);
@@ -13,8 +10,8 @@ describe("Form", () => {
     {
       id: 1,
       name: "Sylvia Palmer",
-      avatar: "https://i.imgur.com/LpaY82x.png"
-    }
+      avatar: "https://i.imgur.com/LpaY82x.png",
+    },
   ];
 
   it("renders without student name if not provided", () => {
@@ -92,3 +89,4 @@ describe("Form", () => {
     expect(onCancel).toHaveBeenCalledTimes(1);
   });
 });
+

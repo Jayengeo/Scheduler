@@ -10,8 +10,10 @@ export default function useApplicationData(props) {
     interviewers: {},
   });
 
+  //sets provided day as current state
   const setDay = (day) => setState({ ...state, day });
 
+  //gets days, appointments, and interviewer data and sets it as current state
   useEffect(() => {
     Promise.all([
       axios.get("/api/days"),
@@ -22,11 +24,12 @@ export default function useApplicationData(props) {
         ...prev,
         days: all[0].data,
         appointments: all[1].data,
-        interviewers: all[2].data
+        interviewers: all[2].data,
       }));
     });
   }, []);
 
+  //returns index of current day
   function findDay(day) {
     const daysOfWeek = {
       Monday: 0,
@@ -38,6 +41,7 @@ export default function useApplicationData(props) {
     return daysOfWeek[day];
   }
 
+  //books an interview, updates spots left and appointment data
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -76,6 +80,7 @@ export default function useApplicationData(props) {
     });
   }
 
+  //books an interview, updates spots left and deletes appointment data
   function cancelInterview(id) {
     const appointment = {
       ...state.appointments[id],

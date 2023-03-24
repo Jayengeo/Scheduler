@@ -5,15 +5,22 @@ import Appointment from "components/Appointment";
 import { getAppointmentsForDay, getInterview } from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
 
+//renders Scheduler application
 export default function Application(props) {
+  
+  //custom hook
   const { state, setDay, bookInterview, cancelInterview } =
     useApplicationData();
-
+   
+    //variable storing the appointments for current day 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
 
+  //maps appointment props for 
   const Schedule = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
-const interviewers = Object.values(state.interviewers)
+    
+    //stores list of interviewers
+    const interviewers = Object.values(state.interviewers);
     return (
       <Appointment
         key={appointment.id}

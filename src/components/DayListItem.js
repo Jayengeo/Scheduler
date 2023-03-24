@@ -3,11 +3,14 @@ import "components/DayListItem.scss";
 import classNames from "classnames";
 
 export default function DayListItem(props) {
+ 
+  //determines scss styling based on boolean value of prop provided
   const dayClass = classNames("day-list__item", {
     "day-list__item--selected": props.selected,
     "day-list__item--full": !props.spots,
   });
 
+  //Used to determine which message to display regarding remaining spots
   const formatSpots = (props) => {
     if (!props) {
       return "no spots remaining";
@@ -22,8 +25,8 @@ export default function DayListItem(props) {
 
   return (
     <li
-    data-testid="day"  
-    className={dayClass}
+      data-testid="day"
+      className={dayClass}
       onClick={() => props.setDay(props.name)}
       selected={props.selected}
     >

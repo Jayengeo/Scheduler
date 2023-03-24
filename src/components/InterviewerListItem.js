@@ -4,6 +4,7 @@ import classNames from "classnames";
 
 export default function InterviewerListItem(props) {
  
+  //conditionally render scss styling based on boolean value of prop provided
   const InterviewerClass = classNames("interviewers__item", {
     "interviewers__item--selected": props.selected,
   });
@@ -15,7 +16,7 @@ export default function InterviewerListItem(props) {
     src={props.avatar}
     alt={props.name}
   />
-  {props.selected && <h6>{props.name}</h6>}
+  {props.selected && <h6>{props.name}</h6>} 
 </li>
 )
 }
